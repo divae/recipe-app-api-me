@@ -6,17 +6,26 @@ class ModelTests(TestCase):
 
     def test_create_user_with_email_successful(self):
         email = 'stlmedrano@gmail.com'
-        password = 'patata1234'
+        test_password = 'test123'
+
         user = get_user_model().objects.create_user(
             email=email,
             password=password
         )
 
         self.assertEqual(user.email, email)
-        self.assertTrue(user.check_password(password))
+        self.assertTrue(user.check_password(test_password))
 
     def test_new_user_email_normalized(self):
         email = 'stlmedrano@GMAIL.com'
-        user = get_user_model().objects.create_user(email, 'passtry333')
+        test_password = 'test123'
+
+        user = get_user_model().objects.create_user(email, test_password)
 
         self.assertEqual(user.email, email.lower())
+
+    def test_new_user_invalid_email(self):
+        test_password = 'test123'
+
+        with self.assertRaises(ValueError):
+            get_user_model().objects.create_user(None, test_password)
