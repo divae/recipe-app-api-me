@@ -5,8 +5,6 @@ python:
 services:
   - docker
   
-install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
-
 before_script: pip install docker-compose
 
 script:
