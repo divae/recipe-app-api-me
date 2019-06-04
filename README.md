@@ -18,3 +18,15 @@ docker-compose up
 ```
 
 The API will then be available at http://127.0.0.1:8000
+
+## Make migrations
+```
+docker-compose run app sh -c "python manage.py makemigrations modulename"
+```
+
+## Test
+
+To run test :
+```
+docker-compose run app sh -c "python manage.py test && flake8"
+```
