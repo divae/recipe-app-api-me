@@ -26,7 +26,8 @@ class AdminSiteTests(TestCase):
         self.assertContains(result, self.user.email)
 
     def test_user_change_page(self):
+        http_connect_ok = 200
         url = reverse('admin:core_user_change', args=[self.user.id])
-        res = self.client.get(url)
+        result = self.client.get(url)
 
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(result.status_code, http_connect_ok)
