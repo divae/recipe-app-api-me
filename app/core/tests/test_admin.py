@@ -31,3 +31,10 @@ class AdminSiteTests(TestCase):
         result = self.client.get(url)
 
         self.assertEqual(result.status_code, http_connect_ok)
+
+    def test_create_user_page(self):
+        http_connect_ok = 200
+        url = reverse('admin:core_user_add')
+        result = self.client.get(url)
+
+        self.assertEqual(result.status_code, http_connect_ok)
