@@ -17,6 +17,11 @@ To start project, run:
 docker-compose up
 ```
 
+*remember create super user the first time
+```
+docker-compose run app sh -c "python manage.py createsuperuser"
+```
+
 The API will then be available at http://127.0.0.1:8000
 
 ## Make migrations
